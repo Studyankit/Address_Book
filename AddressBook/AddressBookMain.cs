@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    internal class AddressBookMain
+    class AddressBookMain
     {
         // constants
         const int LAST_NAME = 1, ADDRESS = 2, CITY = 3, STATE = 4, ZIP = 5, PHONE_NUMBER = 6, EMAIL = 7;
@@ -80,6 +80,21 @@ namespace AddressBook
                         default:
                             break;
                     }
+                }
+            }
+        }
+        /// <summary>
+        /// delete a contact from address book.
+        /// </summary>
+        public void DeleteContact(string name)
+        {
+            foreach (Contact contact in this.contactList)
+            {
+                if (contact.firstName.Equals(name))
+                {
+                    this.contactList.Remove(contact);
+                    Console.WriteLine("Contact Deleted Successfully");
+                    break;
                 }
             }
         }
