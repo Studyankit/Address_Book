@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AddressBook
 {
@@ -34,13 +32,13 @@ namespace AddressBook
         /// </summary>
         public void Display()
         {
-            Console.WriteLine("First Name: ", this.firstName);
-            Console.WriteLine("Last Name: ", this.lastName);
-            Console.WriteLine("Address: ", this.address);
-            Console.WriteLine("City: ", this.city);
-            Console.WriteLine("State: ", this.state);
-            Console.WriteLine("Zipcode: ", this.zipCode);
-            Console.WriteLine("phone number: ", this.phoneNumber);
+            Console.WriteLine("First Name:{0}", this.firstName);
+            Console.WriteLine("Last Name:{0}", this.lastName);
+            Console.WriteLine("Address:{0}", this.address);
+            Console.WriteLine("City: {0}", this.city);
+            Console.WriteLine("State:{0}", this.state);
+            Console.WriteLine("Zipcode:{0}", this.zipCode);
+            Console.WriteLine("phone number:{0}", this.phoneNumber);
         }
     }
 }

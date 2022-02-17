@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AddressBook
 {
@@ -86,6 +84,7 @@ namespace AddressBook
         /// <summary>
         /// delete a contact from address book.
         /// </summary>
+        /// <param name="name"></param>
         public void DeleteContact(string name)
         {
             foreach (Contact contact in this.contactList)
