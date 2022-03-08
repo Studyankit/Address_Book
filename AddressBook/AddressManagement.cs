@@ -22,6 +22,7 @@ namespace AddressBook
                 Console.WriteLine("4.Edit Details");
                 Console.WriteLine("5.Delete Contact");
                 Console.WriteLine("6.Delete the address book");
+                Console.WriteLine("7.Display person by city or state name");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -55,6 +56,9 @@ namespace AddressBook
                         string addressBook = Console.ReadLine();
                         addressDictionary.Remove(addressBook);
                         break;
+                    case 7:
+                        AddressBookMain.DisplayPerson(addressDictionary);
+                        break;
                     case 0:
                         CONTINUE = false;
                         Console.WriteLine("Thank you for using Address Book System!");
@@ -65,7 +69,7 @@ namespace AddressBook
             }
         }
         /// <summary>
-        /// This method is used to add multipl contacts.
+        /// This method is used to add multiple contacts.
         /// </summary>
         /// <param name="addressBookMain"></param>
         public static void AddDetails(AddressBookMain addressBookMain)

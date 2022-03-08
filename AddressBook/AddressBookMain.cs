@@ -9,23 +9,31 @@ namespace AddressBook
         // constants
         const int LAST_NAME = 1, ADDRESS = 2, CITY = 3, STATE = 4, ZIP = 5, PHONE_NUMBER = 6, EMAIL = 7;
 
-        private LinkedList<Contact> contactList;
-
+        private List<Contact> contactList;
         public AddressBookMain()
         {
-            this.contactList = new LinkedList<Contact>();
+            this.contactList = new List<Contact>();
         }
         //this method add details to the address book
         public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            Contact contactDetails = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            
-            if (contactList.Any(contact=> contact.Equals(contactDetails)))
-                Console.WriteLine("Duplicate contact exist");
+            //// finding the data that already has the same first name
+            Contact contact = this.contactList.Find(x => x.firstName.Equals(firstName));
+            //// if same name is not present then add into address book
+            if (contact == null)
+            {
+                Contact contactDetails = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+                this.contactList.Add(contactDetails);
+            }
+            //// print person already exists in the address book
             else
-                this.contactList.AddLast(contactDetails);
+            {
+                Console.WriteLine("Person, {0} is already exist in the address book", firstName);
+            }
         }
-
+        /// <summary>
+        /// display the contact details.
+        /// </summary>
         public void DisplayContact()
         {
             foreach (Contact data in this.contactList)
@@ -33,6 +41,10 @@ namespace AddressBook
                 data.Display();
             }
         }
+        /// <summary>
+        /// update the contact details.
+        /// </summary>
+        /// <param name="name"></param>
         public void EditContact(string name)
         {
             Console.WriteLine("Enter your choice:");
@@ -99,6 +111,41 @@ namespace AddressBook
                     Console.WriteLine("Contact Deleted Successfully");
                     break;
                 }
+            }
+        }
+        /// <summary>
+        /// display list of person across adress book system
+        /// </summary>
+        /// <param name="addressDictionary"></param>
+        public static void DisplayPerson(Dictionary<string, AddressBookMain> addressDictionary)
+        {
+            List<Contact> list = null;
+            string name;
+            Console.WriteLine("Enter City or State name");
+            name = Console.ReadLine();
+            foreach (var data in addressDictionary)
+            {
+                AddressBookMain address = data.Value;
+                list = address.contactList.FindAll(x => x.city.Equals(name) || x.state.Equals(name));
+                if (list.Count > 0)
+                {
+                    DisplayList(list);
+                }
+            }
+            if (list == null)
+            {
+                Console.WriteLine("No person present in the address book with same city or state name");
+            }
+        }
+        /// <summary>
+        /// display the data 
+        /// </summary>
+        /// <param name="list"></param>
+        public static void DisplayList(List<Contact> list)
+        {
+            foreach (var data in list)
+            {
+                data.Display();
             }
         }
     }
