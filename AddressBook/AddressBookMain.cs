@@ -19,7 +19,11 @@ namespace AddressBook
         public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
             Contact contactDetails = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            this.contactList.AddLast(contactDetails);
+            
+            if (contactList.Any(contact=> contact.Equals(contactDetails)))
+                Console.WriteLine("Duplicate contact exist");
+            else
+                this.contactList.AddLast(contactDetails);
         }
 
         public void DisplayContact()

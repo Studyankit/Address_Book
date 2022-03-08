@@ -40,5 +40,21 @@ namespace AddressBook
             Console.WriteLine("Zipcode:{0}", this.zipCode);
             Console.WriteLine("phone number:{0}", this.phoneNumber);
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj == null)
+                return false;
+            if (obj is not Contact)
+                return false;
+            else
+            {
+                if (firstName == ((Contact)obj).firstName && lastName == ((Contact)obj).lastName)
+                    return true;
+                else
+                    return false;
+            }
+           
+        }
+
     }
 }

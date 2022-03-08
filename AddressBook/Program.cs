@@ -1,6 +1,5 @@
 ﻿using System;
 using AddressBook;
-
 using System;
 using System.Collections.Generic;
 
