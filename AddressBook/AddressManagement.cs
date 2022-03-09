@@ -122,3 +122,5 @@ namespace AddressBook
             AddressBookMain address = addressDictionary[name];
             return address;
         }
+    }
+}
