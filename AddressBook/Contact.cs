@@ -12,11 +12,11 @@ namespace AddressBook
         public string address;
         public string city;
         public string state;
-        public long zipCode;
-        public long phoneNumber;
+        public string zipCode;
+        public string phoneNumber;
         public string email;
         //// constructor that gets user detail and store it in the current object.
-        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public Contact(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -38,23 +38,8 @@ namespace AddressBook
             Console.WriteLine("City: {0}", this.city);
             Console.WriteLine("State:{0}", this.state);
             Console.WriteLine("Zipcode:{0}", this.zipCode);
-            Console.WriteLine("phone number:{0}", this.phoneNumber);
+            Console.WriteLine("Phone number:{0}", this.phoneNumber);
+            Console.WriteLine("Email ID:{0}", this.email);
         }
-        public override bool Equals(object? obj)
-        {
-            if (obj == null)
-                return false;
-            if (obj is not Contact)
-                return false;
-            else
-            {
-                if (firstName == ((Contact)obj).firstName && lastName == ((Contact)obj).lastName)
-                    return true;
-                else
-                    return false;
-            }
-           
-        }
-
     }
 }
