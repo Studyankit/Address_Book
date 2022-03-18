@@ -1,8 +1,8 @@
-firstName:Ankit
-lastName:Ghosh
-address:Dhn
-city: Dhanbad
-state:Jharkhand
+firstName:ankit
+lastName:ghosh
+address:dhn
+city: dhn
+state:jh
 zip:475599
 Phone number:89393893292
 Email ID:ankoritfjfj@gmail.com
